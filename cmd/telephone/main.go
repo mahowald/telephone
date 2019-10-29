@@ -94,7 +94,10 @@ func main() {
 
 // makeRequestHandler returns a handler function that will copy inputs recieved from POST requests
 // onto inchan, and then write corresponding outputs on outchan as a response to the request.
-func makeRequestHandler(inputs chan string, outputs chan string) func(w http.ResponseWriter, r *http.Request) {
+func makeRequestHandler(
+	inputs chan string,
+	outputs chan string,
+) func(w http.ResponseWriter, r *http.Request) {
 	f := func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case "POST":
